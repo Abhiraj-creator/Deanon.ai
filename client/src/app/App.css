@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@theme {
+  --color-canvas: #0A0E16;
+  --color-canvas-light: #10131C;
+  --color-sidebar: #080F17;
+  --color-surface: #0B111D;
+  --color-card: #0D1420;
+  --color-card-hover: #121A28;
+  --color-input: #080D14;
+  --color-border-subtle: #1B2331;
+  --color-border-strong: #2A3340;
+  
+  --color-accent-solid: #3D37CE;
+  --color-accent-hover: #4B3FE0;
+  --color-accent-start: #6D5EF5;
+  --color-accent-end: #7A7EFC;
+  --color-accent-soft: #141B47;
+  --color-accent-border: #3A3FA8;
+  --color-accent-link: #8C93F0;
+  
+  --color-text-primary: #F5F6FA;
+  --color-text-secondary: #A6ADC3;
+  --color-text-muted: #6B7385;
+  --color-text-success: #34D399;
+  
+  --color-status-green: #22C55E;
+  --color-status-green-bg: #0E2E29;
+  --color-status-red: #F4373D;
+  --color-status-red-bg: #3A1116;
+  --color-status-orange: #ED7C14;
+  --color-status-orange-bg: #522B0A;
+  --color-status-gray: #6B7280;
+  --color-status-purple: #8C61BD;
+  --color-status-purple-bg: #1F1435;
+  --color-status-blue: #3B82F6;
+  --color-status-teal: #10B981;
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-text-secondary);
+  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+}
