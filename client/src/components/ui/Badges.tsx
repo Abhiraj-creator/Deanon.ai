@@ -1,20 +1,32 @@
 export const ConfidencePill = ({
   level,
 }: {
-  level: 'High' | 'Medium' | 'Low' | 'Clearnet';
+  level: 'High' | 'Moderate' | 'Medium' | 'Low' | 'Strong' | 'Clearnet';
 }) => {
   const styles = {
     High: 'bg-status-red-bg text-status-red',
+    Moderate: 'bg-status-orange-bg text-status-orange',
     Medium: 'bg-status-orange-bg text-status-orange',
-    Low: 'bg-status-gray text-white', // Adjusted for visibility
+    Strong: 'bg-status-green-bg text-status-green',
+    Low: 'bg-status-gray text-white',
     Clearnet: 'bg-status-green-bg text-status-teal',
   };
+
+  const label = level === 'Clearnet'
+    ? 'Potential Clearnet Correlation'
+    : level === 'Strong'
+      ? 'Strong Confidence'
+      : level === 'Moderate'
+        ? 'Moderate Confidence'
+        : level === 'Medium'
+          ? 'Medium Confidence'
+          : `${level} Confidence`;
 
   return (
     <span
       className={`px-3 py-1 rounded-full text-xs font-medium ${styles[level]}`}
     >
-      {level === 'Clearnet' ? 'Potential Clearnet Correlation' : `${level} Confidence`}
+      {label}
     </span>
   );
 };

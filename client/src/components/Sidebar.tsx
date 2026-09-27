@@ -56,12 +56,7 @@ const Sidebar = () => {
         })}
       </nav>
       
-      {/* Footer Info */}
-      <div className="p-4 border-t border-border-subtle">
-        <div className="text-[11px] text-text-muted text-center uppercase tracking-wider">
-          NTRO Project 26151
-        </div>
-      </div>
+
     </aside>
   );
 };

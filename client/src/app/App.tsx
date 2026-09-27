@@ -13,6 +13,7 @@ import Evidence from '../pages/Evidence';
 import Reports from '../pages/Reports';
 import Settings from '../pages/Settings';
 import Analysis from '../pages/Analysis';
+import UserProfile from '../pages/UserProfile';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Route path="/evidence" element={<Evidence />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/profile" element={<UserProfile />} />
         </Route>
         
         {/* Fallback */}

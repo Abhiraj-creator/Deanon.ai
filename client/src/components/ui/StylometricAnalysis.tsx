@@ -1,5 +1,5 @@
 import { Card } from './Card';
-import { BarChart2, Settings, Clock } from 'lucide-react';
+import { BarChart2, Clock } from 'lucide-react';
 
 /**
  * Mock Stylometric & Behavioral Analysis UI.
