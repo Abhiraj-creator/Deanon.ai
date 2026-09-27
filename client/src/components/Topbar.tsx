@@ -67,7 +67,7 @@ const Topbar = () => {
           </div>
           <div className="hidden sm:flex flex-col items-start">
             <span className="text-sm font-medium text-text-primary leading-tight">Analyst</span>
-            <span className="text-[10px] text-text-muted">NTRO · Admin</span>
+            <span className="text-[10px] text-text-muted">Admin</span>
           </div>
           <ChevronDown className={`w-4 h-4 text-text-muted transition-transform ${menuOpen ? 'rotate-180' : ''}`} />
         </button>
@@ -76,7 +76,7 @@ const Topbar = () => {
         {menuOpen && (
           <div className="absolute top-14 right-4 w-48 bg-card border border-border-subtle rounded-xl shadow-2xl py-1 animate-fade-in">
             <button
-              onClick={() => { setMenuOpen(false); navigate('/actors'); }}
+              onClick={() => { setMenuOpen(false); navigate('/profile'); }}
               className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-text-secondary hover:bg-card-hover hover:text-text-primary transition-colors"
             >
               <User className="w-4 h-4" />

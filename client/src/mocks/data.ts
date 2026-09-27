@@ -1,7 +1,7 @@
 // ─── Central Mock Data Layer ───────────────────────────────────────────────
 // All pages import from here instead of re-declaring inline.
 
-export type ConfidenceLevel = 'High' | 'Moderate' | 'Low' | 'Strong';
+export type ConfidenceLevel = 'High' | 'Moderate' | 'Low' | 'Strong' | 'Clearnet';
 
 // ─── ACTORS ────────────────────────────────────────────────────────────────
 export const mockActors = {

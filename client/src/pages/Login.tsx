@@ -70,8 +70,6 @@ const Login = () => {
         <div className="mt-8 flex justify-center items-center space-x-2 text-[11px] text-text-muted">
           <span>Secure Access</span>
           <span>•</span>
-          <span>NTRO Project</span>
-          <span>•</span>
           <span>Audit Logged</span>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Search, Loader2, Database, Network, Fingerprint, ShieldAlert,
+  Search, Loader2, Database, Network, ShieldAlert,
   CheckCircle2, Server, Brain, BarChart2, Clock, ChevronRight,
   ArrowRight, Zap
 } from 'lucide-react';
@@ -20,6 +20,16 @@ const PIPELINE_STEPS = [
 ];
 
 const SUGGESTIONS = ['DarkVendorX', 'SilentCrow', 'EvilCore', '0xA3F9D2C', 'darkvendx7q2k3.onion', 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh'];
+
+const trendValues = [36, 44, 48, 58, 62, 81, 92, 88];
+const riskValues = [82, 64, 76, 91, 58];
+const networkNodes = [
+  { x: '15%', y: '35%', label: 'Wallet' },
+  { x: '38%', y: '18%', label: 'Alias' },
+  { x: '58%', y: '42%', label: 'Forum' },
+  { x: '75%', y: '24%', label: 'PGP' },
+  { x: '52%', y: '70%', label: 'Site' },
+];
 
 const knownActorQueries: Record<string, ActorId> = {
   'darkvendorx': 'DarkVendorX',
@@ -209,6 +219,71 @@ const Analysis = () => {
                   </button>
                 </div>
 
+                <div className="mt-6 mb-6 grid gap-4 md:grid-cols-3">
+                  <Card className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs uppercase tracking-wider text-text-muted">Signal Trend</span>
+                      <span className="text-xs text-status-green">+18%</span>
+                    </div>
+                    <div className="flex h-24 items-end gap-1">
+                      {trendValues.map((value, index) => (
+                        <div
+                          key={index}
+                          className="flex-1 rounded-t-md bg-gradient-to-t from-accent-solid/80 to-accent-link/40"
+                          style={{ height: `${value}%` }}
+                        />
+                      ))}
+                    </div>
+                  </Card>
+
+                  <Card className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs uppercase tracking-wider text-text-muted">Risk Matrix</span>
+                      <span className="text-xs text-status-red">Critical</span>
+                    </div>
+                    <div className="space-y-2">
+                      {riskValues.map((value, index) => (
+                        <div key={index}>
+                          <div className="flex items-center justify-between text-[10px] text-text-muted mb-1">
+                            <span>{['Wallet', 'Alias', 'Forum', 'PGP', 'Host'][index]}</span>
+                            <span>{value}%</span>
+                          </div>
+                          <div className="h-2 rounded-full bg-border-subtle overflow-hidden">
+                            <div
+                              className="h-full rounded-full bg-gradient-to-r from-status-red to-status-orange"
+                              style={{ width: `${value}%` }}
+                            />
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+
+                  <Card className="p-4">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-xs uppercase tracking-wider text-text-muted">Network Map</span>
+                      <span className="text-xs text-accent-link">Connected</span>
+                    </div>
+                    <div className="relative h-24 rounded-xl bg-canvas-dark border border-border-subtle overflow-hidden">
+                      <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full">
+                        <path d="M15 35 L38 18 L58 42 L75 24" stroke="rgba(109,94,245,0.6)" strokeWidth="1.5" fill="none" />
+                        <path d="M58 42 L52 70" stroke="rgba(109,94,245,0.6)" strokeWidth="1.5" fill="none" />
+                        <path d="M15 35 L52 70" stroke="rgba(109,94,245,0.45)" strokeWidth="1.5" fill="none" />
+                      </svg>
+                      {networkNodes.map((node, index) => (
+                        <div
+                          key={index}
+                          className="absolute flex flex-col items-center -translate-x-1/2 -translate-y-1/2"
+                          style={{ left: node.x, top: node.y }}
+                        >
+                          <div className="h-2.5 w-2.5 rounded-full bg-accent-solid border border-white/50 shadow-[0_0_10px_rgba(109,94,245,0.7)]" />
+                          <span className="mt-1 text-[8px] text-text-muted">{node.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </Card>
+                </div>
+
                 {/* Result summary card */}
                 <div className="bg-canvas-dark border border-border-subtle rounded-xl p-5 space-y-4">
                   <div className="flex items-center justify-between">
@@ -288,6 +363,33 @@ const Analysis = () => {
           </div>
         )}
       </Card>
+
+      {status === 'complete' && actor && (
+        <Card className="p-5">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-sm font-bold text-text-primary">Analyst Summary</h2>
+            <span className="text-xs text-text-muted">Updated just now</span>
+          </div>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-xl border border-border-subtle bg-card p-3">
+              <p className="text-xs text-text-muted">Identity Match</p>
+              <p className="mt-2 text-2xl font-bold text-text-primary">{actor.confidence}%</p>
+            </div>
+            <div className="rounded-xl border border-border-subtle bg-card p-3">
+              <p className="text-xs text-text-muted">Linked IDs</p>
+              <p className="mt-2 text-2xl font-bold text-text-primary">{actor.identifiers.length}</p>
+            </div>
+            <div className="rounded-xl border border-border-subtle bg-card p-3">
+              <p className="text-xs text-text-muted">Evidence Points</p>
+              <p className="mt-2 text-2xl font-bold text-text-primary">{actor.confidenceFactors.length + 4}</p>
+            </div>
+            <div className="rounded-xl border border-border-subtle bg-card p-3">
+              <p className="text-xs text-text-muted">Graph Depth</p>
+              <p className="mt-2 text-2xl font-bold text-text-primary">{actor.relationships.length + 3}</p>
+            </div>
+          </div>
+        </Card>
+      )}
 
       {/* Analysis History */}
       <Card>

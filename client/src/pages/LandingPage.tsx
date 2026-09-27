@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
-  Shield, Search, GitBranch, Server, Database, Radar,
-  Eye, FileText, ChevronRight, ArrowRight, Zap, Lock,
-  Globe, Network, Brain, AlertTriangle, TrendingUp,
+  Shield, GitBranch, Server, Database, Radar,
+  Eye, FileText, ArrowRight, Lock, ChevronRight,
+  Globe, Network, Brain, TrendingUp, Zap,
   Users, Key, Cpu, BarChart2, Activity, CheckCircle,
-  ExternalLink, Play, Star, Award, Target
+  Play, Target
 } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
@@ -253,7 +253,7 @@ export default function LandingPage() {
               marginBottom: '28px', fontSize: '12px', color: '#8C93F0',
             }}>
               <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10B981', display: 'inline-block', animation: 'pulse 2s infinite' }} />
-              Problem Statement 26151 · NTRO — Blockchain & Cybersecurity
+              Blockchain & Cybersecurity
             </div>
 
             <div style={{ fontSize: '13px', color: '#6B7385', marginBottom: '12px', letterSpacing: '0.04em' }}>From</div>
@@ -307,9 +307,7 @@ export default function LandingPage() {
             </div>
 
             <div style={{ borderTop: '1px solid #1B2331', paddingTop: '20px' }}>
-              <div style={{ fontSize: '11px', color: '#6B7385', marginBottom: '4px' }}>Prepared for</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#94A0B8' }}>National Technical Research Organisation (NTRO)</div>
-              <div style={{ fontSize: '11px', color: '#6B7385', marginTop: '4px' }}>Problem Statement ID: 26151 · Blockchain & Cybersecurity (Software Category)</div>
+              <div style={{ fontSize: '13px', fontWeight: 600, color: '#94A0B8' }}>Investigative analytics for modern threat teams</div>
             </div>
           </div>
 
@@ -356,7 +354,7 @@ export default function LandingPage() {
               What is <span style={{ background: 'linear-gradient(90deg, #6D5EF5, #7A7EFC)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ThreatLens</span>?
             </h2>
             <p style={{ fontSize: '16px', color: '#94A0B8', maxWidth: '680px', margin: '0 auto', lineHeight: 1.7 }}>
-              ThreatLens is an investigator-facing cyber threat intelligence platform built for NTRO's Problem Statement 26151. It de-anonymizes dark-web threat actors by correlating the digital footprints — handles, PGP keys, wallets, infrastructure artifacts, and behavioral patterns — they leave across platforms.
+              ThreatLens is an investigator-facing cyber threat intelligence platform that correlates the digital footprints — handles, PGP keys, wallets, infrastructure artifacts, and behavioral patterns — that threat actors leave across platforms.
             </p>
           </div>
 
@@ -766,9 +764,8 @@ export default function LandingPage() {
             <div>
               <div style={{ fontSize: '12px', color: '#6B7385', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '16px' }}>About</div>
               <div style={{ fontSize: '13px', color: '#6B7385', lineHeight: 1.7 }}>
-                <div style={{ marginBottom: '8px' }}>Problem Statement ID: <span style={{ color: '#94A0B8' }}>26151</span></div>
                 <div style={{ marginBottom: '8px' }}>Category: <span style={{ color: '#94A0B8' }}>Blockchain & Cybersecurity</span></div>
-                <div>Prepared for: <span style={{ color: '#94A0B8' }}>NTRO</span></div>
+                <div>Threat intelligence for investigative teams</div>
               </div>
             </div>
           </div>

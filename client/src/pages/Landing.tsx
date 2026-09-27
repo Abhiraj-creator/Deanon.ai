@@ -1,25 +1,77 @@
 import { Link } from 'react-router-dom';
-import { 
-  ShieldAlert, 
-  ArrowRight, 
-  Zap, 
-  Code, 
-  Globe, 
-  Database, 
-  Network, 
-  Fingerprint, 
+import {
+  ShieldAlert,
+  ArrowRight,
+  Globe,
+  Database,
+  Network,
+  Fingerprint,
   Activity,
-  FileCheck,
-  ChevronRight
+  FileCheck
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 
+const workflowSteps = [
+  {
+    number: '01',
+    title: 'Data Collection',
+    description: 'Scheduled workers ingest authorized intelligence from Tor forums, marketplaces, and leak sites, then normalize each raw observation into a structured entity.',
+  },
+  {
+    number: '02',
+    title: 'Relationship Mapping',
+    description: 'The Relationship Engine builds a typed graph — actors, handles, PGP keys, wallets, infrastructure — with each edge sourced to an evidence record.',
+  },
+  {
+    number: '03',
+    title: 'AI Persona Analysis',
+    description: 'Stylometric and behavioral features are extracted per persona. A similarity model computes cross-platform match scores with analytical confidence.',
+  },
+  {
+    number: '04',
+    title: 'Infrastructure Correlation',
+    description: 'SSL certificates, server banners, and status artifacts are fingerprinted and matched against clearnet infrastructure, flagging probable real-host associations.',
+  },
+  {
+    number: '05',
+    title: 'Attribution & Confidence',
+    description: 'All signals are fused into evidence-graded attribution leads — four confidence tiers ensure investigators always know the certainty behind every claim.',
+  },
+  {
+    number: '06',
+    title: 'Export & Reporting',
+    description: 'Analysts export CSV/JSON intelligence dumps or generate annotated PDF reports ready for formal review or escalation.',
+  },
+];
+
 const Landing = () => {
   return (
-    <div className="min-h-screen bg-canvas-dark text-text-primary flex flex-col font-inter overflow-x-hidden">
+    <div className="landing-page min-h-screen bg-canvas-dark text-text-primary flex flex-col font-inter overflow-x-hidden">
+      <style>{`
+        .landing-page * { box-sizing: border-box; }
+        @media (max-width: 640px) {
+          .landing-header { height: auto; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+          .landing-header-inner { width: 100%; }
+          .landing-title { font-size: clamp(2.5rem, 11vw, 4rem); line-height: 1.02; }
+          .landing-hero { padding-top: 3rem; padding-bottom: 3rem; }
+          .landing-actions { width: 100%; }
+          .landing-actions a, .landing-actions button, .landing-actions .btn-link { width: 100%; }
+          .landing-actions .btn-link { display: inline-flex; justify-content: center; }
+          .landing-badges { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
+          .landing-visual { aspect-ratio: 9 / 11; }
+          .landing-workflow-grid { grid-template-columns: 1fr; }
+        }
+        @media (orientation: portrait) and (max-width: 900px) {
+          .landing-visual { aspect-ratio: 9 / 11; }
+        }
+        @media (orientation: landscape) and (max-height: 540px) {
+          .landing-hero { min-height: auto; }
+          .landing-visual { aspect-ratio: 16 / 9; }
+        }
+      `}</style>
       {/* Header */}
-      <header className="h-20 flex items-center justify-between px-6 md:px-12 lg:px-24 w-full border-b border-border-subtle/50 bg-canvas-dark/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="landing-header h-20 flex items-center justify-between px-4 sm:px-6 md:px-12 lg:px-24 w-full border-b border-border-subtle/50 bg-canvas-dark/80 backdrop-blur-md sticky top-0 z-50">
         <div className="flex items-center space-x-3">
           <div className="p-2 bg-accent-soft/20 rounded-lg">
             <ShieldAlert className="w-8 h-8 text-accent-solid" />
@@ -41,7 +93,7 @@ const Landing = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex items-center justify-center px-6 md:px-12 lg:px-24 py-20 overflow-hidden">
+      <section className="landing-hero relative w-full min-h-[90vh] flex items-center justify-center px-4 sm:px-6 md:px-12 lg:px-24 py-12 sm:py-16 lg:py-20 overflow-hidden">
         {/* Background Grid & Glows */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9IiMzQzQ1NUIiIG9wYWNpdHk9IjAuNSIvPjwvc3ZnPg==')] opacity-30"></div>
@@ -49,14 +101,14 @@ const Landing = () => {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-end/20 rounded-full blur-[120px]"></div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16 items-center w-full z-10">
           <div className="space-y-8 max-w-2xl">
             <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-accent-soft/10 border border-accent-soft/30 text-accent-link text-xs font-medium uppercase tracking-wider mb-4">
               <span className="w-2 h-2 rounded-full bg-status-green animate-pulse"></span>
               <span>Live Demonstration Available</span>
             </div>
             
-            <h1 className="text-5xl lg:text-7xl font-bold leading-tight text-text-primary tracking-tight">
+            <h1 className="landing-title text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-text-primary tracking-tight">
               Different Aliases.<br />
               Same Actor.<br />
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-accent-start to-accent-end">
@@ -68,7 +120,7 @@ const Landing = () => {
               ThreatLens is a defensive, authorized cyber threat-intelligence platform that identifies relationships, correlates dark-web indicators, and generates evidence-backed investigative leads through AI stylometric and behavioral analysis.
             </p>
             
-            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6">
+            <div className="landing-actions flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6 w-full sm:w-auto">
               <Link to="/login">
                 <Button className="h-14 px-8 text-lg shadow-[0_0_30px_rgba(109,94,245,0.4)] hover:shadow-[0_0_40px_rgba(109,94,245,0.6)] transition-shadow">
                   Launch Interactive Demo
@@ -81,7 +133,7 @@ const Landing = () => {
               </a>
             </div>
 
-            <div className="pt-8 flex items-center space-x-6 text-sm text-text-muted">
+            <div className="landing-badges pt-8 flex flex-wrap items-center gap-4 sm:gap-6 text-sm text-text-muted">
               <div className="flex items-center space-x-2">
                 <ShieldAlert className="w-4 h-4 text-status-green" />
                 <span>Evidence-Backed</span>
@@ -98,7 +150,7 @@ const Landing = () => {
           </div>
 
           {/* Hero Visual - Large Abstract Graph Representation */}
-          <div className="relative w-full aspect-square max-w-[600px] mx-auto lg:ml-auto">
+          <div className="landing-visual relative w-full aspect-[16/10] sm:aspect-square max-w-[600px] mx-auto lg:ml-auto">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent-soft/20 via-transparent to-transparent rounded-full border border-border-subtle/40 shadow-[inset_0_0_120px_rgba(20,27,71,0.6)] animate-[spin_60s_linear_infinite]"></div>
             
             {/* Interactive/Pulsing Nodes Overlay */}
@@ -174,7 +226,7 @@ const Landing = () => {
           <div className="flex flex-wrap justify-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             <div className="flex items-center space-x-2">
               <ShieldAlert className="w-6 h-6" />
-              <span className="text-lg font-bold font-mono">NTRO Challenge</span>
+              <span className="text-lg font-bold font-mono">Threat Intel</span>
             </div>
             <div className="flex items-center space-x-2">
               <Globe className="w-6 h-6" />
@@ -259,6 +311,30 @@ const Landing = () => {
                 Chronological views of events, key appearances, and indicator observations. One-click CSV, JSON, and PDF report exports embedding evidence annotations.
               </p>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* How ThreatLens Works */}
+      <section id="workflow" className="w-full py-24 px-6 md:px-12 lg:px-24 bg-canvas-dark border-t border-border-subtle/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-sm font-bold text-accent-solid tracking-widest uppercase mb-3">How ThreatLens Works</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">Six stages from raw dark-web data to actionable, evidence-backed attribution leads.</h3>
+          </div>
+
+          <div className="landing-workflow-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {workflowSteps.map((step) => (
+              <Card key={step.number} className="relative min-h-[220px] p-5 sm:p-6 border border-border-subtle bg-card/70">
+                <span className="absolute top-4 right-5 text-4xl font-bold leading-none text-white drop-shadow-[0_0_12px_rgba(255,255,255,0.25)]">
+                  {step.number}
+                </span>
+                <div className="pt-10">
+                  <h4 className="text-xl font-bold text-text-primary mb-3">{step.title}</h4>
+                  <p className="text-sm leading-relaxed text-text-secondary">{step.description}</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -349,7 +425,7 @@ const Landing = () => {
       <section id="about" className="w-full py-24 px-6 md:px-12 lg:px-24 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-canvas-light/20 to-canvas-dark">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-sm font-bold text-status-orange tracking-widest uppercase">The Mission</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-text-primary">Prepared for NTRO Problem Statement 26151</h3>
+          <h3 className="text-3xl md:text-4xl font-bold text-text-primary">Built for high-confidence investigation</h3>
           <p className="text-lg text-text-secondary leading-relaxed">
             Designed as a solution for Blockchain & Cybersecurity challenges, this project represents the pinnacle of modern threat intelligence UI. It strictly separates what the problem statement requires from the proposed robust defensive architecture.
           </p>
