@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
-
+@font-face {
+  font-family: 'font-1';
+  src: url('../assests/fonts/168f1d5a867c4205-s.p.woff2');
+}
+@font-face {
+  font-family: 'font-2';
+  src: url('../assests/fonts/1ab6022dc76e6205-s.p.woff');
+}
 @theme {
   /* Backgrounds */
   --color-canvas: #050605;
@@ -76,7 +83,9 @@ html {
 body {
   background-color: var(--color-canvas);
   color: var(--color-text-secondary);
-  font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+  /* font-family: 'Inter', 'Manrope', system-ui, sans-serif;
+   */
+   font-family: 'font-2';
   -webkit-font-smoothing: antialiased;
 }
 

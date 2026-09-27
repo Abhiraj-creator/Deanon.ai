@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MoreHorizontal, Search, Plus, X, RefreshCw, Pause, Activity, Database, Wifi } from 'lucide-react';
+import { MoreHorizontal, Search, Plus, RefreshCw, Pause, Activity, Database, Wifi } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { StatusDot } from '../components/ui/Badges';
 import { mockSources } from '../mocks/data';

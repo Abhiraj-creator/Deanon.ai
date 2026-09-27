@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { CheckCircle2, SlidersHorizontal, Shield, Key, Terminal } from 'lucide-react';
+import { useState } from 'react';
+import { CheckCircle2, SlidersHorizontal, Terminal } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 
 type TabKey = 'General' | 'Collection' | 'Analysis' | 'Security';
