@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Download, Eye, EyeOff, Key, Mail, ShieldAlert,
   Database, Network, Server, Fingerprint, Activity, Clock,
-  FileCheck, Brain, GitBranch, AlertTriangle, CheckCircle2
+  FileCheck, Brain, GitBranch, AlertTriangle
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { ConfidencePill } from '../components/ui/Badges';

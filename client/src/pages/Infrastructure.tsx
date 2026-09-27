@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Search, Loader2, Download, CheckCircle2, Server, Globe, Shield } from 'lucide-react';
+import { useState } from 'react';
+import { Search, Loader2, Download, CheckCircle2 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { ConfidencePill } from '../components/ui/Badges';
 import { mockInfraResults } from '../mocks/data';

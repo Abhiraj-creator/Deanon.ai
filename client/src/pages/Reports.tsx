@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Plus, X, FileText, Eye, Search } from 'lucide-react';
+import { Download, Plus, FileText, Eye, Search } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { mockReportsInit } from '../mocks/data';
 

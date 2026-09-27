@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Users, Network, Database, Search, ShieldAlert,
+  Network, Search, ShieldAlert,
   Fingerprint, Server, ArrowRight, TrendingUp, Clock,
   Key, AlertCircle, CheckCircle, GitBranch
 } from 'lucide-react';

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Eye, Download, Search, Filter, X, ShieldCheck, Database, UserCheck } from 'lucide-react';
+import { useState } from 'react';
+import { Eye, Download, Search, Filter, ShieldCheck, Database, UserCheck } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { ConfidencePill } from '../components/ui/Badges';
 import { mockEvidence } from '../mocks/data';

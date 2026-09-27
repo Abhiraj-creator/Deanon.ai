@@ -1,8 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Search, ChevronDown, Plus, Minus, Maximize, ShieldAlert,
-  Key, Server, Database, Users, Network, X, FileCheck, ArrowRight
+  Key, Server, Database, Users, Network, X, ArrowRight
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { ConfidencePill } from '../components/ui/Badges';

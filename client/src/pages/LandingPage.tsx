@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowRight, CheckCircle, Shield, Eye, Lock,
-  Users, Key, Zap, Server, Activity, ChevronRight,
+  Users, Key, Zap, Server, Activity,
   Database, GitBranch, BarChart2, Radar, FileText, Cpu
 } from 'lucide-react';
 import { NetworkField } from '../components/visual/NetworkField';

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import { GRAPH_NODES, GRAPH_EDGES } from '../../lib/graphModel';
 import { TechnicalGrid } from './TechnicalGrid';
 
@@ -8,10 +8,9 @@ function parsePct(v: string) {
 
 type NetworkFieldProps = {
   className?: string;
-  compact?: boolean;
 };
 
-export function NetworkField({ className = '', compact = false }: NetworkFieldProps) {
+export function NetworkField({ className = '' }: NetworkFieldProps) {
   const nodes = useMemo(() => Object.values(GRAPH_NODES), []);
   const edges = GRAPH_EDGES;
 
@@ -38,7 +37,7 @@ export function NetworkField({ className = '', compact = false }: NetworkFieldPr
               fill="none"
               stroke={e.confidence === 'High' ? 'rgba(57, 255, 104, 0.4)' : 'rgba(57, 255, 104, 0.15)'}
               strokeWidth="0.35"
-              strokeDasharray={e.confidence === 'Medium' ? '1,1' : undefined}
+              strokeDasharray={e.confidence === 'Moderate' ? '1,1' : undefined}
             />
           );
         })}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { NAV_ITEMS } from '../../lib/routeConfig';
@@ -6,6 +6,15 @@ import { NAV_ITEMS } from '../../lib/routeConfig';
 type MobileNavigationProps = { open: boolean; onClose: () => void };
 
 export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
+  useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [open, onClose]);
+
   return (
     <div
       className={`fixed inset-0 z-[200] bg-canvas flex flex-col transition-all duration-300 ease-out md:hidden ${

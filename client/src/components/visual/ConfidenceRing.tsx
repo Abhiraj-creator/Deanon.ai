@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useReducedMotion } from '../motion/useReducedMotion';
 
 export type Factor = { label: string; pct: number; color?: string };
