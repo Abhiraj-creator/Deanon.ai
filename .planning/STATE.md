@@ -4,7 +4,7 @@
 Milestone 1: Full UI/UX Redesign
 
 ## Milestone Status
-Planning
+Ready for Phase 1 Execution
 
 ## Key Decisions Made
 - Preserve existing React + TypeScript + Vite + Tailwind CSS v4 + React Router stack
@@ -24,8 +24,15 @@ Planning
 - Base tokens defined in `client/src/app/App.css` (already updated to green accent system)
 - Tailwind v4 `@theme` block and `:root` CSS vars established
 
-## Phases Completed
-None yet
+## Roadmap & Phase Status
+- Phase 1: Audit & Design Token Foundation — **PLANNED** (Ready for Execution)
+- Phase 2: Global Shell Redesign — **PLANNED**
+- Phase 3: Landing Page Redesign — **PLANNED**
+- Phase 4: Login + Dashboard Redesign — **PLANNED**
+- Phase 5: Actor Profile + Relationship Graph Redesign — **PLANNED**
+- Phase 6: Infrastructure, Sources, Evidence, Reports, and Settings Redesign — **PLANNED**
+- Phase 7: Motion System and Reusable Components — **PLANNED**
+- Phase 8: Mobile Responsiveness, Accessibility, and Final Polish Pass — **PLANNED**
 
 ## Architecture Notes
 - Entry: `client/src/app/main.tsx` → `App.tsx` → `BrowserRouter` + routes
