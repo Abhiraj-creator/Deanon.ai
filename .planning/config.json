@@ -1,0 +1,18 @@
+{
+  "version": "1.0",
+  "project": "THREATLENS",
+  "workflow": {
+    "auto_advance": false,
+    "research_enabled": true,
+    "plan_checker_enabled": true,
+    "nyquist_validation_enabled": false,
+    "commit_docs": false,
+    "ui_phase": true,
+    "ui_safety_gate": false
+  },
+  "models": {
+    "researcher": "sonnet",
+    "planner": "opus",
+    "checker": "sonnet"
+  }
+}
