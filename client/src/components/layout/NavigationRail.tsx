@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
@@ -27,39 +28,49 @@ const icons = [
 export function NavigationRail() {
   return (
     <aside
-      className="group/rail hidden md:flex flex-col h-full w-[76px] hover:w-[220px] transition-[width] duration-300 ease-out bg-sidebar border-r border-border-subtle overflow-hidden shrink-0"
+      className="group/rail hidden md:flex flex-col h-full w-[76px] hover:w-[220px] transition-[width] duration-300 ease-out bg-sidebar border-r border-border-subtle overflow-hidden shrink-0 z-30"
       aria-label="Main navigation"
     >
-      <div className="h-16 flex items-center px-4 border-b border-border-subtle shrink-0">
-        <div className="leading-tight">
-          <span className="block text-[10px] font-semibold tracking-[0.2em] text-text-primary">THREAT</span>
-          <span className="block text-[10px] font-light tracking-[0.35em] text-accent-solid">LENS</span>
+      {/* Logo */}
+      <div className="h-16 flex items-center px-[22px] border-b border-border-subtle shrink-0 overflow-hidden">
+        <div className="leading-none whitespace-nowrap">
+          <span className="block text-[9px] font-semibold tracking-[0.25em] text-text-primary uppercase">THREAT</span>
+          <span className="block text-[9px] font-light tracking-[0.4em] text-accent-solid uppercase mt-0.5">LENS</span>
         </div>
       </div>
-      <nav className="flex-1 py-4 overflow-y-auto overflow-x-hidden">
+
+      {/* Nav items */}
+      <nav className="flex-1 py-3 overflow-y-auto overflow-x-hidden">
         {NAV_ITEMS.map((item, i) => {
           const Icon = icons[i];
+          const isSettings = item.path === '/settings';
           return (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              title={item.name}
-              className={({ isActive }) =>
-                `relative flex items-center gap-3 px-4 py-3 text-sm transition-colors border-l-2 ${
-                  isActive
-                    ? 'border-accent-solid text-text-primary bg-accent-soft/40'
-                    : 'border-transparent text-text-muted hover:text-accent-solid hover:border-accent-border/50'
-                }`
-              }
-            >
-              <span className="text-[10px] tabular-nums text-text-muted w-5 shrink-0 opacity-60 group-hover/rail:opacity-100">
-                {item.num}
-              </span>
-              <Icon className="w-[18px] h-[18px] shrink-0" strokeWidth={1.5} />
-              <span className="whitespace-nowrap opacity-0 group-hover/rail:opacity-100 transition-opacity duration-200 font-medium tracking-wide text-xs uppercase">
-                {item.name}
-              </span>
-            </NavLink>
+            <React.Fragment key={item.path}>
+              {/* Visual separator before Settings */}
+              {isSettings && <div className="mx-4 h-px bg-border-subtle opacity-50 my-2" />}
+              <NavLink
+                to={item.path}
+                title={item.name}
+                className={({ isActive }) =>
+                  `relative flex items-center gap-3 pl-[22px] pr-4 py-2.5 text-xs transition-all duration-200 border-l-2 group/navitem ${
+                    isActive
+                      ? 'border-accent-solid text-text-primary bg-accent-soft/20 font-semibold'
+                      : 'border-transparent text-text-muted hover:text-accent-solid hover:border-accent-border/60 hover:bg-accent-soft/10'
+                  }`
+                }
+              >
+                {/* Number */}
+                <span className="text-[9px] tabular-nums font-medium text-text-muted/60 w-4 shrink-0 group-hover/navitem:text-text-muted transition-colors">
+                  {item.num}
+                </span>
+                {/* Icon */}
+                <Icon className="w-[17px] h-[17px] shrink-0 transition-colors" strokeWidth={1.5} />
+                {/* Label — hidden when collapsed */}
+                <span className="whitespace-nowrap opacity-0 group-hover/rail:opacity-100 transition-opacity duration-200 font-medium tracking-[0.06em] text-[11px] uppercase">
+                  {item.name}
+                </span>
+              </NavLink>
+            </React.Fragment>
           );
         })}
       </nav>

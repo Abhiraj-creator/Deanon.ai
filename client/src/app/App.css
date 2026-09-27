@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -75,7 +76,7 @@ html {
 body {
   background-color: var(--color-canvas);
   color: var(--color-text-secondary);
-  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'Inter', 'Manrope', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 

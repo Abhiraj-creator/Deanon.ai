@@ -21,7 +21,9 @@ const MainLayout = () => {
         <main className={`flex-1 overflow-y-auto bg-surface ${fullBleed ? 'p-0' : 'p-4 md:p-8 lg:p-10'}`}>
           <div className={fullBleed ? 'h-full' : 'max-w-[1400px] mx-auto'}>
             <MotionProvider>
-              <Outlet />
+              <div key={location.pathname} className="animate-fade-in h-full">
+                <Outlet />
+              </div>
             </MotionProvider>
           </div>
         </main>

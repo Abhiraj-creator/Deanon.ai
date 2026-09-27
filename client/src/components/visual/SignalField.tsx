@@ -32,8 +32,6 @@ export function SignalField({ compact = false }: { compact?: boolean }) {
     });
   }, [reduced]);
 
-  const h = compact ? 280 : 420;
-
   return (
     <div className={`relative w-full ${compact ? 'h-[280px]' : 'h-[min(70vh,520px)]'}`}>
       <TechnicalGrid className="opacity-60" size={56} />
