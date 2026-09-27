@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ShieldAlert, Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff } from 'lucide-react';
 import { Button } from '../components/ui/Button';
+import { SignalField } from '../components/visual/SignalField';
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -9,69 +10,63 @@ const Login = () => {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock login simply redirects to dashboard
     navigate('/dashboard');
   };
 
   return (
-    <div className="min-h-screen bg-[#060D15] flex items-center justify-center relative overflow-hidden">
-      {/* Background Texture (faint mountain/landscape mockup via radial gradient) */}
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-accent-soft via-canvas to-canvas pointer-events-none"></div>
+    <div className="min-h-screen bg-canvas flex items-center justify-center relative overflow-hidden px-4">
+      <div className="absolute inset-0 opacity-40 pointer-events-none">
+        <SignalField compact />
+      </div>
 
-      <div className="relative z-10 w-full max-w-[380px] bg-card border border-border-subtle rounded-2xl p-8 shadow-2xl">
-        <div className="flex flex-col items-center mb-8">
-          <div className="w-12 h-12 rounded-full border border-accent-border bg-accent-soft flex items-center justify-center mb-4">
-            <ShieldAlert className="w-6 h-6 text-accent-solid" />
-          </div>
-          <h1 className="text-lg font-bold text-white tracking-wide">ThreatLens</h1>
-          <h2 className="text-xl font-semibold text-white mt-4">Sign in to your account</h2>
-          <p className="text-xs text-text-muted mt-2">Authorized personnel only</p>
+      <div className="relative z-10 w-full max-w-md border border-border-subtle bg-panel/90 backdrop-blur-sm p-8 md:p-10">
+        <div className="mb-10">
+          <p className="text-xs tracking-[0.35em] font-semibold text-text-primary">THREATLENS</p>
+          <h1 className="mt-6 text-2xl font-light text-text-primary leading-snug">
+            Authorized
+            <span className="block font-semibold tracking-tight">Intelligence Access</span>
+          </h1>
         </div>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block text-[13px] font-medium text-text-secondary mb-1.5">
-              Username
-            </label>
+            <label className="meta-label block mb-2">Username</label>
             <input
               type="text"
-              className="w-full bg-input border border-border-subtle rounded-lg px-3 py-2.5 text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-border focus:ring-1 focus:ring-accent-border transition-colors"
-              placeholder="Enter username"
               required
+              className="w-full bg-input border border-border-subtle rounded-md px-3 py-2.5 text-sm text-text-primary placeholder:text-text-muted focus:outline-none focus:border-accent-border"
+              placeholder="Enter username"
             />
           </div>
-
           <div>
-            <label className="block text-[13px] font-medium text-text-secondary mb-1.5">
-              Password
-            </label>
+            <label className="meta-label block mb-2">Password</label>
             <div className="relative">
               <input
                 type={showPassword ? 'text' : 'password'}
-                className="w-full bg-input border border-border-subtle rounded-lg pl-3 pr-10 py-2.5 text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-border focus:ring-1 focus:ring-accent-border transition-colors"
-                placeholder="••••••••"
                 required
+                className="w-full bg-input border border-border-subtle rounded-md pl-3 pr-10 py-2.5 text-sm text-text-primary focus:outline-none focus:border-accent-border"
+                placeholder="••••••••"
               />
               <button
                 type="button"
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-primary"
                 onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
             </div>
           </div>
-
-          <Button type="submit" className="w-full h-11 text-[15px] mt-2">
-            Sign In
+          <Button type="submit" className="w-full uppercase tracking-widest text-xs" showArrow>
+            Access System
           </Button>
         </form>
 
-        <div className="mt-8 flex justify-center items-center space-x-2 text-[11px] text-text-muted">
+        <footer className="mt-10 pt-6 border-t border-border-subtle flex flex-wrap gap-x-4 gap-y-1 justify-center meta-label text-text-muted">
           <span>Secure Access</span>
-          <span>•</span>
           <span>Audit Logged</span>
-        </div>
+          <span>Authorized Personnel Only</span>
+        </footer>
       </div>
     </div>
   );
