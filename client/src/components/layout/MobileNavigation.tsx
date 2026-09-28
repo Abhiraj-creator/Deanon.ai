@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { NAV_ITEMS } from '../../lib/routeConfig';
+import { APP_NAME } from '../../constants';
 
 type MobileNavigationProps = { open: boolean; onClose: () => void };
 
@@ -27,8 +28,7 @@ export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
       {/* Top bar */}
       <div className="flex items-center justify-between px-6 py-5 border-b border-border-subtle shrink-0">
         <div className="leading-none">
-          <span className="text-[10px] tracking-[0.25em] font-semibold text-text-primary uppercase">THREAT</span>
-          <span className="text-[10px] tracking-[0.4em] font-light text-accent-solid uppercase ml-1">LENS</span>
+          <span className="text-[10px] tracking-[0.25em] font-semibold text-text-primary uppercase">{APP_NAME}</span>
         </div>
         <button
           type="button"
@@ -67,7 +67,7 @@ export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
       {/* Footer */}
       <div className="px-8 py-5 border-t border-border-subtle shrink-0">
         <p className="text-[9px] font-mono tracking-[0.2em] text-text-muted uppercase">
-          THREATLENS — CYBER INTELLIGENCE SYSTEM
+          {APP_NAME} — CYBER INTELLIGENCE SYSTEM
         </p>
       </div>
     </div>

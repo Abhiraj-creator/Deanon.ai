@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { NetworkField } from '../components/visual/NetworkField';
 import { Marquee } from '../components/motion/Marquee';
+import { APP_NAME } from '../constants';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -32,7 +33,7 @@ export default function LandingPage() {
     },
     {
       title: 'Infrastructure Correlation',
-      desc: 'ThreatLens fingerprints onion hidden services by extracting SSL certificate artifacts, server banners, and status-page data — then matches them against clearnet infrastructure records.',
+      desc: `${APP_NAME} fingerprints onion hidden services by extracting SSL certificate artifacts, server banners, and status-page data — then matches them against clearnet infrastructure records.`,
       bullets: ['SSL certificate fingerprinting', 'Default-banner & status-page detection', 'Clearnet domain correlation', 'Confidence-graded indicators'],
     },
     {
@@ -72,8 +73,7 @@ export default function LandingPage() {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="leading-none">
-            <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">THREAT</span>
-            <span className="block text-[11px] font-light tracking-[0.4em] text-accent-solid uppercase mt-0.5">LENS</span>
+            <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">{APP_NAME}</span>
           </div>
         </div>
 
@@ -189,7 +189,7 @@ export default function LandingPage() {
         <div className="max-w-[1400px] mx-auto">
           <p className="text-[10px] font-mono tracking-[0.25em] text-text-muted uppercase mb-4">// 01 THE SIGNAL</p>
           <h2 className="editorial-section mb-12">
-            What THREATLENS <br />
+            What {APP_NAME} <br />
             <span className="font-semibold text-accent-solid">observes.</span>
           </h2>
 
@@ -384,7 +384,7 @@ export default function LandingPage() {
             TRACE THE SIGNAL
           </span>
           <span className="text-2xl md:text-3xl font-mono font-bold tracking-[0.15em] text-accent-solid/30 uppercase px-8">
-            THREATLENS INTELLIGENCE
+            {APP_NAME} INTELLIGENCE
           </span>
           <span className="text-2xl md:text-3xl font-mono font-light tracking-[0.15em] text-text-muted/40 uppercase px-8">
             CYBER ATTRIBUTION ENGINE
@@ -419,8 +419,7 @@ export default function LandingPage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-3">
             <div className="leading-none">
-              <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">THREAT</span>
-              <span className="block text-[11px] font-light tracking-[0.4em] text-accent-solid uppercase mt-0.5">LENS</span>
+              <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">{APP_NAME}</span>
             </div>
             <p className="text-[10px] text-text-muted leading-relaxed pt-2">
               AI-ASSISTED CYBER THREAT INTELLIGENCE & PERSONA DE-ANONYMIZATION PLATFORM.
@@ -457,7 +456,7 @@ export default function LandingPage() {
 
         <div className="max-w-[1400px] mx-auto pt-12 mt-12 border-t border-border-subtle/50 flex flex-col sm:flex-row justify-between items-center text-[10px] text-text-muted gap-4">
           <span>AUTHORIZED CYBER THREAT INTELLIGENCE SYSTEM</span>
-          <span>© 2026 THREATLENS. ALL RIGHTS RESERVED.</span>
+          <span className="uppercase">© 2026 {APP_NAME}. ALL RIGHTS RESERVED.</span>
         </div>
       </footer>
     </div>
