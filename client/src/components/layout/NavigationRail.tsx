@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { NAV_ITEMS } from '../../lib/routeConfig';
 
+import { Logo } from '../Logo';
+
 const icons = [
   LayoutDashboard,
   Users,
@@ -32,10 +34,12 @@ export function NavigationRail() {
       aria-label="Main navigation"
     >
       {/* Logo */}
-      <div className="h-16 flex items-center px-[22px] border-b border-border-subtle shrink-0 overflow-hidden">
-        <div className="leading-none whitespace-nowrap">
-          <span className="block text-[9px] font-semibold tracking-[0.25em] text-text-primary uppercase">THREAT</span>
-          <span className="block text-[9px] font-light tracking-[0.4em] text-accent-solid uppercase mt-0.5">LENS</span>
+      <div className="h-16 flex items-center px-4 border-b border-border-subtle shrink-0 overflow-hidden">
+        <div className="flex items-center gap-3 leading-none whitespace-nowrap">
+          <Logo variant="icon" size={32} />
+          <span className="opacity-0 group-hover/rail:opacity-100 transition-opacity duration-200 text-xs font-bold tracking-wider text-text-primary font-sans">
+            DeAnon<span className="text-accent-solid">.Ai</span>
+          </span>
         </div>
       </div>
 

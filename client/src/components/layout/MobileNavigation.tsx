@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { X } from 'lucide-react';
 import { NAV_ITEMS } from '../../lib/routeConfig';
+import { Logo } from '../Logo';
 import { APP_NAME } from '../../constants';
 
 type MobileNavigationProps = { open: boolean; onClose: () => void };
@@ -27,9 +28,7 @@ export function MobileNavigation({ open, onClose }: MobileNavigationProps) {
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-6 py-5 border-b border-border-subtle shrink-0">
-        <div className="leading-none">
-          <span className="text-[10px] tracking-[0.25em] font-semibold text-text-primary uppercase">{APP_NAME}</span>
-        </div>
+        <Logo size={28} />
         <button
           type="button"
           onClick={onClose}
