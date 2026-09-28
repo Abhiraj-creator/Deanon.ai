@@ -165,7 +165,7 @@ const RelationshipGraph = () => {
       <div className="relative flex-1 border border-border-subtle bg-canvas-deep rounded-[6px] overflow-hidden min-h-0">
         <div style={{ transform: `scale(${zoom})`, transition: 'transform 0.2s', width: '100%', height: '100%', position: 'relative' }}>
           {/* Curved Bezier Edges */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 1 }}>
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" style={{ zIndex: 1 }}>
             {visibleEdges.map((edge, i) => {
               const from = ALL_NODES[edge.from as NodeId];
               const to = ALL_NODES[edge.to as NodeId];
@@ -182,13 +182,14 @@ const RelationshipGraph = () => {
               return (
                 <path
                   key={i}
-                  d={`M ${x1}% ${y1}% Q ${mx}% ${my}% ${x2}% ${y2}%`}
+                  d={`M ${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}`}
                   fill="none"
                   stroke={edge.confidence === 'High' ? '#39FF68' : '#25D957'}
                   strokeWidth={edge.confidence === 'High' ? '1.2' : '0.6'}
                   strokeOpacity={active ? (edge.confidence === 'High' ? 0.45 : 0.25) : 0.05}
                   strokeDasharray={edge.confidence === 'Moderate' ? '3,3' : undefined}
-                  style={{ transition: 'stroke-opacity 0.2s' }}
+                  vectorEffect="non-scaling-stroke"
+                  style={{ transition: 'stroke-opacity 0.3s ease-out' }}
                 />
               );
             })}
@@ -205,7 +206,7 @@ const RelationshipGraph = () => {
             return (
               <div
                 key={n.id}
-                className={`absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group transition-all duration-200 ${
+                className={`absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center cursor-pointer group transition duration-300 ease-out ${
                   connected ? 'opacity-100 scale-100' : 'opacity-15 scale-95'
                 }`}
                 style={{ top: n.y, left: n.x, zIndex: isSelected ? 30 : 10 }}
