@@ -9,6 +9,8 @@ import { NetworkField } from '../components/visual/NetworkField';
 import { Marquee } from '../components/motion/Marquee';
 import { APP_NAME } from '../constants';
 
+import { Logo } from '../components/Logo';
+
 export default function LandingPage() {
   const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
@@ -51,7 +53,7 @@ export default function LandingPage() {
       desc: 'Generate investigator reports and export all intelligence as CSV or JSON. Every report annotates evidence and confidence so findings are defensible in a formal review.',
       bullets: ['CSV / JSON bulk export', 'PDF investigator reports', 'Timeline & graph snapshots', 'Audit-trail annotations'],
     },
-  ];
+    ];
 
   const pipeline = [
     { step: '01', title: 'Data Collection', desc: 'Scheduled workers ingest authorized intelligence from Tor forums, marketplaces, and leak sites, then normalize raw observations into structured entities.' },
@@ -72,9 +74,7 @@ export default function LandingPage() {
       >
         {/* Logo */}
         <div className="flex items-center gap-3">
-          <div className="leading-none">
-            <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">{APP_NAME}</span>
-          </div>
+          <Logo size={36} />
         </div>
 
         {/* Center Links */}
@@ -157,8 +157,8 @@ export default function LandingPage() {
           </div>
 
           {/* Right 5 Columns — Network Visual */}
-          <div className="lg:col-span-5 h-[420px] lg:h-[480px] relative">
-            <NetworkField className="rounded-[6px] shadow-2xl" />
+          <div className="lg:col-span-5 h-[460px] lg:h-[540px] relative">
+            <NetworkField className="rounded-[8px] shadow-[0_0_50px_rgba(7,12,20,0.8)] border border-accent-solid/30" />
           </div>
         </div>
       </section>
@@ -418,9 +418,7 @@ export default function LandingPage() {
       <footer className="bg-canvas-deep py-16 px-6 md:px-12 text-xs font-mono border-t border-border-subtle">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
           <div className="space-y-3">
-            <div className="leading-none">
-              <span className="block text-[11px] font-semibold tracking-[0.25em] text-text-primary uppercase">{APP_NAME}</span>
-            </div>
+            <Logo size={28} />
             <p className="text-[10px] text-text-muted leading-relaxed pt-2">
               AI-ASSISTED CYBER THREAT INTELLIGENCE & PERSONA DE-ANONYMIZATION PLATFORM.
             </p>

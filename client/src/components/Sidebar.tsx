@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom';
-import { APP_NAME } from '../constants';
 import { 
   LayoutDashboard, 
   Users, 
@@ -9,9 +8,9 @@ import {
   Radar, 
   FolderCheck, 
   FileText, 
-  Settings,
-  ShieldAlert
+  Settings 
 } from 'lucide-react';
+import { Logo } from './Logo';
 
 const navItems = [
   { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
@@ -30,8 +29,7 @@ const Sidebar = () => {
     <aside className="w-[230px] h-full bg-sidebar border-r border-border-subtle flex flex-col">
       {/* Brand Header */}
       <div className="h-16 flex items-center px-6 mb-4">
-        <ShieldAlert className="w-6 h-6 text-accent-solid mr-2" />
-        <span className="text-white font-bold text-base tracking-wide">{APP_NAME}</span>
+        <Logo size={32} />
       </div>
 
       {/* Navigation Links */}
