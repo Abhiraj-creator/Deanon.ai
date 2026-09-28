@@ -4,28 +4,27 @@ export const ConfidencePill = ({
   level: 'High' | 'Moderate' | 'Medium' | 'Low' | 'Strong' | 'Clearnet';
 }) => {
   const styles = {
-    High: 'bg-status-red-bg text-status-red',
-    Moderate: 'bg-status-orange-bg text-status-orange',
-    Medium: 'bg-status-orange-bg text-status-orange',
-    Strong: 'bg-status-green-bg text-status-green',
-    Low: 'bg-status-gray text-white',
-    Clearnet: 'bg-status-green-bg text-status-teal',
+    High: 'border border-status-red/30 text-status-red bg-status-red-bg',
+    Moderate: 'border border-status-orange/30 text-status-orange bg-status-orange-bg',
+    Medium: 'border border-status-orange/30 text-status-orange bg-status-orange-bg',
+    Strong: 'border border-accent-border text-accent-solid bg-accent-soft',
+    Low: 'border border-border-subtle text-text-muted bg-card',
+    Clearnet: 'border border-status-teal/30 text-status-teal bg-status-green-bg',
   };
 
-  const label = level === 'Clearnet'
-    ? 'Potential Clearnet Correlation'
-    : level === 'Strong'
-      ? 'Strong Confidence'
-      : level === 'Moderate'
-        ? 'Moderate Confidence'
-        : level === 'Medium'
-          ? 'Medium Confidence'
-          : `${level} Confidence`;
+  const label =
+    level === 'Clearnet'
+      ? 'Potential Clearnet Correlation'
+      : level === 'Strong'
+        ? 'Strong Confidence'
+        : level === 'Moderate'
+          ? 'Moderate Confidence'
+          : level === 'Medium'
+            ? 'Medium Confidence'
+            : `${level} Confidence`;
 
   return (
-    <span
-      className={`px-3 py-1 rounded-full text-xs font-medium ${styles[level]}`}
-    >
+    <span className={`px-2.5 py-0.5 rounded-sm text-[10px] font-medium tracking-wide uppercase ${styles[level]}`}>
       {label}
     </span>
   );
@@ -33,17 +32,17 @@ export const ConfidencePill = ({
 
 export const StatusDot = ({ status }: { status: 'Online' | 'Offline' }) => (
   <div className="flex items-center space-x-2">
-    <span className="relative flex h-2.5 w-2.5">
+    <span className="relative flex h-2 w-2">
       {status === 'Online' && (
-        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-status-green opacity-75"></span>
+        <span className="animate-pulse-subtle absolute inline-flex h-full w-full rounded-full bg-accent-solid opacity-40" />
       )}
       <span
-        className={`relative inline-flex rounded-full h-2.5 w-2.5 ${
-          status === 'Online' ? 'bg-status-green' : 'bg-status-gray'
+        className={`relative inline-flex rounded-full h-2 w-2 ${
+          status === 'Online' ? 'bg-accent-solid' : 'bg-status-gray'
         }`}
-      ></span>
+      />
     </span>
-    <span className={status === 'Online' ? 'text-status-green text-sm' : 'text-text-muted text-sm'}>
+    <span className={status === 'Online' ? 'text-accent-solid text-sm' : 'text-text-muted text-sm'}>
       {status}
     </span>
   </div>

@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import { APP_NAME } from '../constants';
 
 const workflowSteps = [
   {
@@ -76,7 +77,7 @@ const Landing = () => {
           <div className="p-2 bg-accent-soft/20 rounded-lg">
             <ShieldAlert className="w-8 h-8 text-accent-solid" />
           </div>
-          <span className="text-2xl font-bold tracking-wide text-text-primary">ThreatLens</span>
+          <span className="text-2xl font-bold tracking-wide text-text-primary">{APP_NAME}</span>
         </div>
         <nav className="hidden md:flex items-center space-x-10 text-sm font-medium text-text-secondary">
           <a href="#features" className="hover:text-accent-link transition-colors">Platform Capabilities</a>
@@ -117,7 +118,7 @@ const Landing = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-text-secondary leading-relaxed">
-              ThreatLens is a defensive, authorized cyber threat-intelligence platform that identifies relationships, correlates dark-web indicators, and generates evidence-backed investigative leads through AI stylometric and behavioral analysis.
+              {APP_NAME} is a defensive, authorized cyber threat-intelligence platform that identifies relationships, correlates dark-web indicators, and generates evidence-backed investigative leads through AI stylometric and behavioral analysis.
             </p>
             
             <div className="landing-actions flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-6 w-full sm:w-auto">
@@ -247,7 +248,7 @@ const Landing = () => {
             <h2 className="text-sm font-bold text-accent-solid tracking-widest uppercase mb-3">Platform Capabilities</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">End-to-End De-anonymization</h3>
             <p className="text-lg text-text-secondary">
-              ThreatLens transforms raw, unstructured dark-web data into correlated, evidence-backed intelligence profiles.
+              {APP_NAME} transforms raw, unstructured dark-web data into correlated, evidence-backed intelligence profiles.
             </p>
           </div>
 
@@ -315,11 +316,11 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* How ThreatLens Works */}
+      {/* How {APP_NAME} Works */}
       <section id="workflow" className="w-full py-24 px-6 md:px-12 lg:px-24 bg-canvas-dark border-t border-border-subtle/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-sm font-bold text-accent-solid tracking-widest uppercase mb-3">How ThreatLens Works</h2>
+            <h2 className="text-sm font-bold text-accent-solid tracking-widest uppercase mb-3">How {APP_NAME} Works</h2>
             <h3 className="text-3xl md:text-5xl font-bold text-text-primary mb-6">Six stages from raw dark-web data to actionable, evidence-backed attribution leads.</h3>
           </div>
 
@@ -392,7 +393,7 @@ const Landing = () => {
               <span className="text-accent-solid">Actionable Intelligence.</span>
             </h2>
             <p className="text-lg text-text-secondary leading-relaxed">
-              Attribution errors are high-harm. ThreatLens ensures that the system never displays bare assertions like "Actor A = Actor B". Every connection is a pipeline of:
+              Attribution errors are high-harm. {APP_NAME} ensures that the system never displays bare assertions like "Actor A = Actor B". Every connection is a pipeline of:
             </p>
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
@@ -432,7 +433,7 @@ const Landing = () => {
           <div className="flex justify-center pt-8">
             <Link to="/login">
               <Button className="h-14 px-10 text-lg">
-                Enter ThreatLens Dashboard
+                Enter {APP_NAME} Dashboard
               </Button>
             </Link>
           </div>
@@ -444,11 +445,11 @@ const Landing = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center space-x-2">
             <ShieldAlert className="w-6 h-6 text-accent-solid" />
-            <span className="text-xl font-bold text-text-primary">ThreatLens</span>
+            <span className="text-xl font-bold text-text-primary">{APP_NAME}</span>
           </div>
           
           <p className="text-sm text-text-muted text-center md:text-left">
-            &copy; 2026 ThreatLens – Frontend Demo Environment. No actual data is transmitted.
+            &copy; 2026 {APP_NAME} – Frontend Demo Environment. No actual data is transmitted.
           </p>
           
           <div className="flex space-x-6">

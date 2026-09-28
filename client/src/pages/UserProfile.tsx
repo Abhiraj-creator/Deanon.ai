@@ -1,6 +1,7 @@
 import { Shield, Mail, Phone, Clock, Activity, FileText, Search, LogOut } from 'lucide-react';
 import { Card } from '../components/ui/Card';
 import { useNavigate } from 'react-router-dom';
+import { APP_NAME } from '../constants';
 
 const statItems = [
   { label: 'Reports Generated', value: '42', icon: FileText, color: 'text-accent-link' },
@@ -63,7 +64,7 @@ const UserProfile = () => {
             <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div className="flex items-center gap-2 text-sm text-text-secondary">
                 <Mail className="w-4 h-4 text-text-muted flex-shrink-0" />
-                <span>analyst@threatlens.gov.in</span>
+                <span>{`analyst@${APP_NAME.toLowerCase()}`}</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-text-secondary">
                 <Phone className="w-4 h-4 text-text-muted flex-shrink-0" />

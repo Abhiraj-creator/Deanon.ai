@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { APP_NAME } from '../constants';
 import { 
   LayoutDashboard, 
   Users, 
@@ -30,7 +31,7 @@ const Sidebar = () => {
       {/* Brand Header */}
       <div className="h-16 flex items-center px-6 mb-4">
         <ShieldAlert className="w-6 h-6 text-accent-solid mr-2" />
-        <span className="text-white font-bold text-base tracking-wide">ThreatLens</span>
+        <span className="text-white font-bold text-base tracking-wide">{APP_NAME}</span>
       </div>
 
       {/* Navigation Links */}
