@@ -43,7 +43,7 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <div
-      className={`inline-flex items-center gap-3 select-none leading-none ${className}`}
+      className={`inline-flex items-center  select-none leading-none ${className}`}
       {...props}
     >
       {(variant === 'full' || variant === 'icon') && (

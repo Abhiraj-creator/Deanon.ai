@@ -68,36 +68,40 @@ export default function LandingPage() {
     <div className="bg-canvas text-text-secondary font-sans min-h-screen overflow-x-hidden selection:bg-accent-soft selection:text-accent-solid">
       {/* ── TOP NAV ── */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12 flex items-center justify-between h-16 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-3 md:px-12 flex items-center h-16 gap-2 md:gap-4 ${
           scrolled ? 'bg-canvas-deep/90 backdrop-blur-md border-b border-border-subtle shadow-2xl' : 'bg-transparent'
         }`}
       >
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <Logo size={36} />
+        {/* Logo — hard left, never shrinks */}
+        <div className="flex items-center shrink-0">
+          <Logo size={30} />
         </div>
 
-        {/* Center Links */}
-        <div className="hidden md:flex items-center gap-8 font-mono text-xs text-text-muted">
+        {/* Center Links — desktop only, fills middle space */}
+        <div className="hidden md:flex flex-1 justify-center items-center gap-8 font-mono text-xs text-text-muted">
           <a href="#the-signal" className="hover:text-text-primary transition-colors tracking-wide">// 01 Signal</a>
           <a href="#features" className="hover:text-text-primary transition-colors tracking-wide">// 02 Capabilities</a>
           <a href="#pipeline" className="hover:text-text-primary transition-colors tracking-wide">// 03 Pipeline</a>
           <a href="#views" className="hover:text-text-primary transition-colors tracking-wide">// 04 Views</a>
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex items-center gap-4">
+        {/* Spacer on mobile to push actions right */}
+        <div className="flex-1 md:hidden" />
+
+        {/* Action Buttons — right side, always visible */}
+        <div className="flex items-center gap-2 md:gap-3 shrink-0">
           <Link
             to="/login"
-            className="text-xs font-mono text-text-muted hover:text-text-primary transition-colors px-3 py-1.5"
+            className="text-xs font-mono text-text-muted hover:text-text-primary transition-colors px-2 py-1.5 whitespace-nowrap"
           >
             Login
           </Link>
           <button
             onClick={() => navigate('/analysis')}
-            className="h-9 px-4 border border-accent-border text-text-primary text-xs font-mono tracking-wider uppercase hover:bg-accent-soft/20 hover:border-accent-solid transition-all rounded-[4px]"
+            className="h-8 md:h-9 px-3 md:px-4 border border-accent-border text-text-primary text-[10px] md:text-xs font-mono tracking-wider uppercase hover:bg-accent-soft/20 hover:border-accent-solid transition-all rounded-[4px] whitespace-nowrap"
           >
-            Open Dashboard →
+            <span className="hidden sm:inline">Open Dashboard →</span>
+            <span className="sm:hidden">Dashboard →</span>
           </button>
         </div>
       </nav>
